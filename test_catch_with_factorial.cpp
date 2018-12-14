@@ -1,9 +1,13 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
-#include "PlutoRover.hpp"
+#include <iostream>
+#include "PlutoRover.cpp"
+
+using namespace std;
 
 TEST_CASE( "Rover is Initialized", "[initializeRover]" ) {
     PlutoRover* rover = new PlutoRover();
+    cout<<rover->xPos;
     
     REQUIRE(rover->xPos == 0);
     REQUIRE(rover->yPos == 0);
@@ -15,6 +19,7 @@ TEST_CASE( "Rover is Initialized", "[initializeRover]" ) {
         REQUIRE(rover->yPos == 5);
         REQUIRE(rover->Direction=='S');
     }
+    
     SECTION("Initialize Rover with Parameters Outside Planet Bounds"){
         PlutoRover* rover = new PlutoRover(200, 250, 'W');
         
@@ -22,5 +27,6 @@ TEST_CASE( "Rover is Initialized", "[initializeRover]" ) {
         REQUIRE(rover->yPos == 50);
         REQUIRE(rover->Direction=='W');
     }
+    
 
 }

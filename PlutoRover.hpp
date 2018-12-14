@@ -7,9 +7,6 @@ class PlutoRover{
     int yPos;
     char Direction;
     
-    PlutoRover(){
-        xPos = 0;
-        yPos = 0;
-        Direction = 'N';
-    }
+    PlutoRover();
+    PlutoRover(int x, int y, char direction);
 };

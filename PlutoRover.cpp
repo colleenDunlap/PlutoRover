@@ -7,3 +7,8 @@ PlutoRover::PlutoRover(){
         yPos = 0;
         Direction = 'N';
 }
+PlutoRover::PlutoRover(int x, int y, char direction){
+    xPos = x;
+    yPos = y;
+    Direction = direction;
+}
