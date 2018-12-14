@@ -27,6 +27,39 @@ TEST_CASE( "Rover is Initialized", "[initializeRover]" ) {
         REQUIRE(rover->yPos == 50);
         REQUIRE(rover->Direction=='W');
     }
+    SECTION("Initialize Rover with Negative Placement Parameters"){
+        PlutoRover* rover = new PlutoRover(-1, -99, 'E');
+        
+        REQUIRE(rover->xPos == 99);
+        REQUIRE(rover->yPos == 1);
+        REQUIRE(rover->Direction=='E');
+    }
     
 
+}
+
+TEST_CASE("Moving the Rover","[rovingRover]"){
+    PlutoRover* rover = new PlutoRover();
+    vector<char> commands;
+    commands.push_back('F');
+    commands.push_back('F');
+    rover.moveRover(commands);
+    REQUIRE(rover->xPos == 0);
+    REQUIRE(rover->yPos == 2);
+    
+    commands.clear();
+    commands.push_back('B');
+    
+    rover.moveRover(commands);
+    REQUIRE(rover->xPos == 0);
+    REQUIRE(rover->yPos == 99);
+    
+    commands.clear();
+    commands.push_back('L');
+    commands.push_back('F');
+    
+    rover.moveRover(commands);
+    REQUIRE(rover->xPos == 99);
+    REQUIRE(rover->yPos == 0);
+    
 }

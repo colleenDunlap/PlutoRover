@@ -9,6 +9,12 @@ PlutoRover::PlutoRover(){
 }
 PlutoRover::PlutoRover(int x, int y, char direction){
     xPos = x%PLUTOCIRCUMFERENCE;
+    if(xPos<0){
+        xPos = xPos + PLUTOCIRCUMFERENCE;
+    }
     yPos = y%PLUTOCIRCUMFERENCE;
+    if(yPos<0){
+        yPos = yPos + PLUTOCIRCUMFERENCE;
+    }
     Direction = direction;
 }
