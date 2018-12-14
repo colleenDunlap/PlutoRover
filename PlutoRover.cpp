@@ -8,7 +8,7 @@ PlutoRover::PlutoRover(){
         Direction = 'N';
 }
 PlutoRover::PlutoRover(int x, int y, char direction){
-    xPos = x;
-    yPos = y;
+    xPos = x%PLUTOCIRCUMFERENCE;
+    yPos = y%PLUTOCIRCUMFERENCE;
     Direction = direction;
 }
