@@ -112,6 +112,20 @@ TEST_CASE("Obstacle Detection"){
     rover->moveRover(commands);
     
     REQUIRE(rover->yPos == 0);//rover should not move to area where new obstacle is
+    SECTION("TEST OBSTACLES FACING EAST"){
+        PlutoRover* rover = new PlutoRover(0,0,'E');
+        rover->addObstacle(1,0);
+        rover->addObstacle(99,0);
+    
+        vector<char>commands;
+        commands.push_back('F');
+        rover->moveRover(commands);
+    
+        REQUIRE(rover->xPos == 0);
+        commands.push_back('B');
+        rover->moveRover(commands);
+        REQUIRE(rover->xPos==99);
+    }
     
 }
 

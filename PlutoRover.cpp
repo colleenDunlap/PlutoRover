@@ -79,18 +79,33 @@ void PlutoRover::displaceRover(char forwardOrBackward){
             }
         }
         else if(Direction == 'S'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==xPos &&obstacleY[iObstacle]==(yPos-1)){
+                    return;
+                }
+            }
             yPos--;
             if(yPos<0){
                 yPos = yPos + PLUTOCIRCUMFERENCE;
             }
         }
         else if(Direction == 'E'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos+1) &&obstacleY[iObstacle]==(yPos)){
+                    return;
+                }
+            }
             xPos++;
             if(xPos>=PLUTOCIRCUMFERENCE){
                 xPos = xPos - PLUTOCIRCUMFERENCE;
             }
         }
         else if(Direction == 'W'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos-1) &&obstacleY[iObstacle]==(yPos)){
+                    return;
+                }
+            }
             xPos--;
             if(xPos<0){
                 xPos = xPos + PLUTOCIRCUMFERENCE;
@@ -99,24 +114,44 @@ void PlutoRover::displaceRover(char forwardOrBackward){
     }
     else{
         if(Direction == 'N'){//the square directly north of (x.y) is (x,y+1)
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos) &&obstacleY[iObstacle]==(yPos-1)){
+                    return;
+                }
+            }
             yPos--;
             if(yPos<0){
                 yPos = yPos + PLUTOCIRCUMFERENCE;
             }
         }
         else if(Direction == 'S'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos) &&obstacleY[iObstacle]==(yPos+1)){
+                    return;
+                }
+            }
             yPos++;
             if(yPos>=PLUTOCIRCUMFERENCE){
                 yPos = yPos - PLUTOCIRCUMFERENCE;
             }
         }
         else if(Direction == 'E'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos-1) &&obstacleY[iObstacle]==(yPos)){
+                    return;
+                }
+            }
             xPos--;
             if(xPos<0){
                 xPos = xPos + PLUTOCIRCUMFERENCE;
             }
         }
         else if(Direction == 'W'){
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==(xPos+1) &&obstacleY[iObstacle]==(yPos)){
+                    return;
+                }
+            }
             xPos++;
             
             if(xPos>=PLUTOCIRCUMFERENCE){
