@@ -68,6 +68,11 @@ void PlutoRover::displaceRover(char forwardOrBackward){
     if(forwardOrBackward == 'F'){
         if(Direction == 'N'){//the square directly north of (x.y) is (x,y+1)
             //check here if obstacle is located at (x, y+1).  return if that's the case.  Repeat for other 7 conditions;
+            for(int iObstacle = 0; iObstacle<obstacleX.size(); iObstacle++){
+                if(obstacleX[iObstacle]==xPos &&obstacleY[iObstacle]==(yPos+1)){
+                    return;
+                }
+            }
             yPos++;
             if(yPos>=PLUTOCIRCUMFERENCE){
                 yPos = yPos - PLUTOCIRCUMFERENCE;
@@ -120,5 +125,9 @@ void PlutoRover::displaceRover(char forwardOrBackward){
         }
         
     }
+}
+void PlutoRover::addObstacle(int x, int y){
+    obstacleX.push_back(x);
+    obstacleY.push_back(y);
 }
 

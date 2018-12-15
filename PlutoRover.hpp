@@ -10,6 +10,8 @@ class PlutoRover{
     int xPos;
     int yPos;
     char Direction;
+    vector<int> obstacleX;
+    vector<int> obstacleY;
     
     PlutoRover();
     PlutoRover(int x, int y, char direction);
@@ -17,5 +19,6 @@ class PlutoRover{
     void moveRover(vector<char> commands);
     void turnRover(char rightOrLeft);
     void displaceRover(char forwardOrBackward);
+    void addObstacle(int obsX, int obsY);
 
 };
